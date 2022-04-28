@@ -1,0 +1,32 @@
+*{
+    margin:1px;
+    box-sizing: border-box;
+}
+
+.navBar{
+    background-color: rgba(0, 0, 0, 0.664);
+}
+.navBarList ul{
+    margin: 0;
+    padding: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.navBarList li{
+    list-style: none;
+}
+.navBarList li a{
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    text-decoration: none;
+    padding:10px;
+    color:white;
+    display:block;
+}
+
+.navBarList li a:hover{
+    background-color: green;
+
+}
+
+

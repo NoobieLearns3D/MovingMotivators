@@ -1,0 +1,20 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.mainContainer
+{
+    border: 1px solid black;
+    width:100%;
+    display: grid;
+}
+img
+{
+    width:335px;
+    height: 275px;
+}
+
+
+
+

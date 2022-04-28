@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+.outerContainer
+{
+    width: 100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(49, 45, 45, 0.411);
+    background-image: linear-gradient(to right top,black,grey);   
+}
+.instructionContainer section
+{
+    width: 70vw;
+    height: 70vh;
+    background-color: black;
+    color:white;
+}
+.instructionContainer ul li{
+    padding: 10px 10px 10px 20px;
+    font-size: 12px;
+    list-style-position: inside;
+}
+h2{
+    padding:30px;
+    text-decoration: underline;
+}
+
+.outlineButton
+{
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+}
+
+button{
+    background-color: rgb(56, 241, 56);
+    width:140px;
+    height: 40px;
+    font-size: 22px;
+    font-weight: bolder;
+    border-radius: 30px;
+    color: white;
+    transition: .6s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
