@@ -11,47 +11,48 @@
     <div class="outerContainer">
         <div class = "containerOne">
             <div class = "rowOne" draggable="true">
-                <img src="../cardsTwo/acceptanceCard.PNG">
-                <img src="../cardsTwo/curiosityCard.png">
-                <img src="../cardsTwo/freedomCard.png">
+                <img id = "newItem" ondragstart="drag(event)" src="../cardsTwo/acceptanceCard.PNG">
+                <img id = "secondItem" ondragstart = "drag(event)" src="../cardsTwo/curiosityCard.png">
+                <img id = "thirdItem" ondragstart = "drag(event)" src="../cardsTwo/freedomCard.png">
             </div>
-            <div class = "rowOne">
-                <img src="../cardsTwo/goalCard.png">
-                <img src="../cardsTwo/honorCard.png">
-                <img src="../cardsTwo/masteryCard.png">
+            <div class = "rowOne" draggable = 'true'>
+                <img id = "fourthItem" ondragstart = "drag(event)" src="../cardsTwo/goalCard.png">
+                <img id = "fifthItem" ondragstart = "drag(event)" src="../cardsTwo/honorCard.png">
+                <img id = "sixthItem" ondragstart = "drag(event)" src="../cardsTwo/masteryCard.png">
             </div>
-            <div class = "rowOne">
-                <img src="../cardsTwo/orderCard.png">
-                <img src="../cardsTwo/powerCard.png">
-                <img src="../cardsTwo/relatednessCard.png">
+            <div class = "rowOne" draggable="true">
+                <img id = "seventhItem" ondragstart = "drag(event)" src="../cardsTwo/orderCard.png">
+                <img id = "eigthItem" ondragstart = "drag(event)" src="../cardsTwo/powerCard.png">
+                <img id = "ninthItem" ondragstart = "drag(event)" src="../cardsTwo/relatednessCard.png">
             </div>
-            <div class = "rowOne">
-                <img src="../cardsTwo/statusCard.png">
+            <div class = "rowOne" draggable="true">
+                <img id = "tenthItem" ondragstart = "drag(event)" src="../cardsTwo/statusCard.png">
             </div>
         </div>  
         
         <div class="containerTwo">
             <div class = "emptyBoxes">
-                <div class = "trial"></div>
-                <div class="trial"></div>
-                <div class="trial"></div>
+                <div class = "trial" id = "targetBoxOne" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div class="trial" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div class="trial" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             </div>
             <div class="emptyBoxes">
-                <div class = "trial"></div>
-                <div class="trial"></div>
-                <div class="trial"></div>
+                <div class = "trial" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div class="trial" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div class="trial" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             </div>
             <div class="emptyBoxes">
-                <div class = "trial"></div>
-                <div class="trial"></div>
-                <div class="trial"></div>
+                <div class = "trial" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div class="trial" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div class="trial" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             </div>
             <div class="emptyBoxes">
-                <div class = "trial"></div>
+                <div class = "trial" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             </div>
         </div>
     </div>
 </body>
+<script src = "../js/cardArrangment.js"></script>
 </html>
 
 <!--
