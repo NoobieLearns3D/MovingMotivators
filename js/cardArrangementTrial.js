@@ -55,12 +55,10 @@ function drop(e) {
 }
 */
 
-
 function drag(ev)
 {
     console.log(ev.target.id);
     ev.dataTransfer.setData("text",ev.target.id);
-    ev.target.classList.remove('dragover');
 }
 
 function allowDrop(ev)
