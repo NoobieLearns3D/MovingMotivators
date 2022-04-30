@@ -3,6 +3,7 @@
     box-sizing: border-box;
 }
 
+
 .navBar{
     background-color: rgba(0, 0, 0, 0.664);
 }
@@ -17,7 +18,7 @@
     list-style: none;
 }
 .navBarList li a{
-    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-family:'Lato', sans-serif;;
     text-decoration: none;
     padding:10px;
     color:white;
