@@ -5,8 +5,8 @@ var tempData = "";  //this variable will have id of the current card that is bei
 var i = 0;
 
 /**
- * gatherData() - will gather all the classNames and assign values. In this case the cards needs to be filled in order
- *                so the first box is set to 1 the rest is set to 0.This is done because order needs to be maintained.
+ * gatherData() - will gather all the classNames and assign values.In this case the cards needs to be filled in order
+                  so the first box is set to 1 the rest is set to 0.This is done because order needs to be maintained.
  */
 
 function gatherData() 
@@ -25,7 +25,7 @@ function gatherData()
     
 }
 
-function drag(ev)
+function drag(ev)  
 {
     //console.log(ev.target.id);
     ev.dataTransfer.setData("text",ev.target.id);
