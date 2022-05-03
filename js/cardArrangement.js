@@ -25,11 +25,13 @@ function gatherData()
     
 }
 
+
 function drag(ev)  
 {
     //console.log(ev.target.id);
     ev.dataTransfer.setData("text",ev.target.id);
     tempData = ev.target.id;
+
     console.log("This is id: ",tempData)
     console.log("THIS IS THE DICTIONARY: ",dict)
 
@@ -56,16 +58,20 @@ empty.forEach(e => {
             e.preventDefault();
             var data = e.dataTransfer.getData("text")
             e.target.appendChild(document.getElementById(data))
-            addedImages.push(tempData)
+            if (addedImages.indexOf(tempData)== -1)
+                addedImages.push(tempData)
             console.log(addedImages)
 
-            if(i>=9)
+            if(i==9)
             {
-                i = null
                 console.log("VALUE OF I AT THE END IS: ",i)
                 alert("YOU HAVE FILLED ALL THE BOXES")
+                var confirmation = confirm("Would you like to rearrange... ?")
+                if (!confirmation)
+                    generatePDF()
+                return
             }
-            
+
             i+=1;
             var activateNextEmptyBox = getClassNameOfEmptyBoxes[i].className
             console.log(activateNextEmptyBox)
@@ -80,3 +86,14 @@ empty.forEach(e => {
         }
     })
 })
+
+
+function rearrangementDrag(ev)
+{
+   console.log(ev)
+}
+
+function generatePDF()
+{
+    console.log("Generating PDF")
+}

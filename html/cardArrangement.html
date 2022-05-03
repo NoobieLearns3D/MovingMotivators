@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type = "text/css" href="../css/cardArrangement.css">
-    <script src ="../js/cardArrangement.js" defer></script>
+    <script src ="../js/arrangementProb.js" defer></script>
     <title>Card Arrangement</title>
 </head>
 <body onload="gatherData()">
@@ -33,7 +33,7 @@
 
         <div class ="containerTwo">
             <div class = "emptyRows">
-                <div class="myEmptyClassOne" id="empty" draggable="true"></div>
+                <div class="myEmptyClassOne" ondragstart="drag(event)" id="empty" draggable="true"></div>
                 <div class="myEmptyClassTwo" id="empty"draggable="true"></div>
                 <div class="myEmptyClassThree" id="empty" draggable="true"></div>
             </div>
