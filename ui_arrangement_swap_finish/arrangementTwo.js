@@ -121,13 +121,19 @@ function drop(e)
         console.log("Drag started from: ", dragSource.id, "and Drag ended in: ", this.id)
     }
     else{
+
+        console.log("Drag started from: ", dragSource.id, "and Drag ended in: ", this.id)
         univI+=1;
-        if(univI > empty.length)
-           foo()
+        console.log("UnivI: ", univI)
+        if(univI >=empty.length)
+        {
+            console.log("Activating finish button")
+            activateFinishButton()
+        }
         else
             activateDisplay(univI)
     }
-    }
+}
     
 
 function activateDisplay(univI)
@@ -135,7 +141,23 @@ function activateDisplay(univI)
     empty[univI].classList.remove('hideDisplay')
 }
 
-function foo()
+function activateFinishButton()
 {
+    const activateButton = document.querySelector(".buttonContainer .button")
+    console.log(activateButton)
+    activateButton.style.cursor = "pointer";
+    activateButton.style.backgroundColor = 'rgb(0, 255, 0)';
+    activateButton.onclick = function() {
+        var userOption = confirm("Would you like to change your preferences/re-arrange ...?")
+        if(userOption)
+        {
+            if(confirm("Are you sure... ?")){}
+            else
+                alert("Generating PDF")
+        }
+    else{
+        alert("Generating PDF")
+    }
+    }
 
 }
