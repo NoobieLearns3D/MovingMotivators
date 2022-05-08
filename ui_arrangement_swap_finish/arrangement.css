@@ -79,9 +79,8 @@ img {
 
 .emptyContainerOne div {
     background-color: azure;
-    border:1px solid black;
-    padding:5px;
-    margin:5px;
+    /* padding:5px;*/
+    margin:5px; 
     width: 145px;
     height:145px;
 }
@@ -92,5 +91,16 @@ img {
 
 .hideDisplay{
     display:none;
-    
+}
+
+.addBorder{
+    border: 0.5px solid green;
+}
+
+.over{
+    border:3px dotted red;
+}
+
+.hideCards {
+    display: none;
 }

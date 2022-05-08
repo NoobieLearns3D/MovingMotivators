@@ -2,6 +2,7 @@ var empty;
 var univI = 0;
 var separateClass = []
 var cardId = []
+var myAddedCards = new Set()
 
 function gatherDataAndInitialize()  // Gather all the required data such as className id and add required eventListeners
 {   
@@ -11,6 +12,7 @@ function gatherDataAndInitialize()  // Gather all the required data such as clas
     cards.forEach( f=> {
         f.addEventListener('dragend',(e)=>{
             console.log("Ending drag", e.target.id, e.target.className)
+            
         })
     })      
     
@@ -27,16 +29,6 @@ function gatherDataAndInitialize()  // Gather all the required data such as clas
             e.preventDefault()
             console.log("dragging Over",e.target.id, e.target.className)   //add drag over event - when card is over the empty slot
         })
-
-        d.addEventListener('drop', (e) =>{           // add drop event
-            e.preventDefault();
-            var data = e.dataTransfer.getData("text/plain");
-            e.target.appendChild(document.getElementById(data));
-            console.log("dropped")
-            univI+=1;
-            activateDisplay(univI)
-            
-        })
     })
 
 }
@@ -44,10 +36,26 @@ function gatherDataAndInitialize()  // Gather all the required data such as clas
 function dragStart(ev){                               // when user starts dragging this is activated
     ev.dataTransfer.setData('text/plain', ev.target.id)
     console.log("Starting drag")
+    console.log("drag card id: ",ev.target.id)
 }
  
 function activateDisplay(index)                           // display the empty slots one by one 
 {
     console.log("INDEX AND COUNT IS: ",index)
     empty[index].classList.remove('hideDisplay')
+}
+
+
+function drop(e)
+{           // add drop event
+    e.stopPropagation();
+        var data = e.dataTransfer.getData("text/plain");
+        console.log("not present adding", data)
+        e.target.appendChild(document.getElementById(data));
+        var border = document.getElementById(data)
+        border.classList.add('addBorder')
+        console.log("dropped")
+        myAddedCards.add(data)
+        univI+=1;
+        activateDisplay(univI)
 }
