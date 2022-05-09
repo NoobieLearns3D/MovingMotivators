@@ -7,6 +7,8 @@ img {
     height:145px;
     cursor: move;
 }
+
+
 .outerContainer {
     border:1px solid black;
     padding: 5px;
@@ -31,6 +33,13 @@ img {
     height:145px;
 }
 
+.containerOne img:hover{
+    transform: scale(2.0);
+    z-index:-10;
+}
+
+
+
 .containerTwo{
 
     border:1px solid black;
@@ -51,7 +60,11 @@ img {
     margin:10px;
     width: 145px;
     height:145px;
-    
+}
+
+.containerTwo img:hover{
+    transform: scale(2.0);
+    z-index:-1;
 }
 
 .division{
