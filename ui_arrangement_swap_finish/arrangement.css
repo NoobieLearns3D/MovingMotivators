@@ -3,8 +3,8 @@
     padding:0px;
 }
 img {
-    width:145px;
-    height:145px;
+    width:125px;
+    height:125px;
     cursor: move;
 }
 
@@ -34,10 +34,14 @@ img {
 }
 
 .containerOne img:hover{
-    transform: scale(2.0);
-    z-index:-10;
+    transform: translate(100px, 100px) scale(2.0);
+    z-index:-1;
 }
 
+.containerOne #myCardIdSeven:hover{
+    transform: translate(-150px, 100px) scale(2.0);
+    z-index: -1;
+}
 
 
 .containerTwo{
