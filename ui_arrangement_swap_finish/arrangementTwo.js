@@ -4,6 +4,12 @@ var univI = 0;
 var addedCards = new Set();
 var emptyDragSource;
 var dropEndIn;
+var containerOneElements = []
+var containerTwoElements = []
+var indexOfelem;
+var containerOneDragCount = 0
+var imageIdAndImageName = {'myCardIdEight':'powerCard.png','myCardIdNine':'relatednessCard.png','myCardIdTen':'statusCard.png'}
+ 
 
 function gatherDataAndInitialize()  // Gather all the required data such as className id and add required eventListeners
 {   
@@ -21,6 +27,9 @@ function gatherDataAndInitialize()  // Gather all the required data such as clas
         item.addEventListener('dragstart', dragStart);
         item.addEventListener('dragend',dragEnd);
   })
+
+    separateContainerOneAndContainerTwoCards(cards)
+
 }
 
 function addEventListeners(empty)
@@ -44,7 +53,7 @@ function deactivateAndDisplaySingle(empty)
     for(var m = 0;m<empty.length;m++)
         empty[m].classList.add('hideDisplay')
     empty[0].classList.remove('hideDisplay')
-   
+    empty[0].classList.add('highlightAfterDisplay')
 }
 
 function dragStart(e)
@@ -102,16 +111,55 @@ function dragLeave(e)
 function drop(e)
 {
     e.stopPropagation()
+    //foo()
 
+    
     console.log("this in drop function: ",this)
     console.log("DRAG SOURCE: ",dragSource)
 
-    if (dragSource !== this )
+    if (dragSource!== this) // drag and drop not allowed in cards slot
     {
         dragSource.innerHTML = this.innerHTML;
         this.innerHTML = e.dataTransfer.getData('text/html');
+
+        if(containerOneElements.indexOf(dragSource.id)!=-1 && dragSource.id != 'empty')  // to move cards from below container
+        {
+            
+            console.log("User has moved ", containerOneDragCount, " from container one ...")
+            console.log("this after drop: ", this.id)
+            console.log('Element ',dragSource.id,' is in containerOne')
+            console.log("Removing from container One list...")
+            
+            indexOfelem = containerOneElements.indexOf(dragSource.id)  // find the index of dragged element
+            console.log("Element found at: ",indexOfelem)
+
+            containerOneElements.splice(indexOfelem, 1)
+            console.log("UPDATED containerOne list: ", containerOneElements)
+            if(containerOneDragCount <= containerTwoElements.length-1)
+            {
+                moveFromSecondContainer(containerOneDragCount)
+                containerOneDragCount+=1
+            }
+               
+        }
+        else
+            console.log("CONTAINER TWO EMPTY...")
+        // else if (containerTwoElements.indexOf(dragSource.id)!=-1 && dragSource.id !='empty')
+        // {
+        //     console.log('this after drop:>> ', this.id );
+        //     console.log("Element ", dragSource.id," is in containerTwo")
+        //     console.log("Removing from container Two list...")
+
+        //     indexOfelem = containerTwoElements.indexOf(dragSource.id)  // find the index of dragged element
+        //     console.log("Element found at: ",indexOfelem)
+
+        //     containerTwoElements.splice(indexOfelem, 1)
+        //     console.log("UPDATED containerTwo list: ", containerTwoElements)
+        // }
+           
     }
     this.classList.remove('over')
+    this.classList.remove('highlightAfterDisplay')
     dropEndIn = this.id
     console.log("Drop ended in: ",dropEndIn)
     console.log("this.id: ", this.id, e.target.id)
@@ -138,7 +186,9 @@ function drop(e)
 
 function activateDisplay(univI)
 {
+    
     empty[univI].classList.remove('hideDisplay')
+    empty[univI].classList.add('highlightAfterDisplay')
 }
 
 function activateFinishButton()
@@ -160,4 +210,84 @@ function activateFinishButton()
     }
     }
 
+}
+
+
+function separateContainerOneAndContainerTwoCards(cards)
+{
+    console.log("Separating...")
+    for(var i = 0;i<7;i++)
+        containerOneElements.push(cards[i].id)
+    console.log("CONTAINER ONE ELEMENTS: ",containerOneElements)
+
+    for(var j = 7;j<cards.length;j++)
+        containerTwoElements.push(cards[j].id)
+    console.log("CONTAINER TWO ELEMENTS: ", containerTwoElements)
+}
+
+
+// function  foo()
+// {
+//     var someDropTrial = document.querySelector('.containerOne')
+//     console.log("GETTING CONTAINER ONE:",someDropTrial)
+//     var createDiv = document.createElement('div')
+//     console.log("CREATING EMPTY DIV: ", createDiv)
+//     var createImg = document.createElement('img')
+//     console.log("CREATING IMAGE TAG: ", createImg)
+//     createDiv.appendChild(createImg)
+//     someDropTrial.appendChild(createDiv)
+
+
+
+//     if(containerOneElements.indexOf(dragSource.id)!=-1)
+//     {
+//         console.log('Element ',dragSource.id,' is in containerOne')
+//         console.log("Removing from container One list...")
+//         indexOfelem = containerOneElements.indexOf(dragSource.id)
+//         console.log("Element found at: ",indexOfelem)
+//         containerOneElements.splice(indexOfelem, 1)
+//         console.log("UPDATED containerOne list: ", containerOneElements)
+//     }
+
+//     else
+//     {
+//         console.log("Element is in containerTwo")
+//         console.log("Removing from container Two list...")
+//         containerTwoElements.pop(dragSource.id)
+//         console.log("UPDATED containerTwo list: ", containerTwoElements)
+//     }
+       
+
+// }
+
+function moveFromSecondContainer(containerOneDragCount)
+{
+    console.log("******************************************")
+    console.log("Moving from second container....",containerOneDragCount)
+    var someDropTrial = document.querySelector('.containerOne')
+    console.log("GETTING CONTAINER ONE:",someDropTrial)
+    var createDiv = document.createElement('div')
+    console.log("CREATING EMPTY DIV: ", createDiv)
+    var createImg = document.createElement('img')
+
+    // var imgSrc = document.querySelector('#'+containerTwoElements[containerOneDragCount])
+    // console.log("IMAGE SOURCE: ", imgSrc.src)
+
+    var removeImageFromSecondContainer = document.querySelector('#'+containerTwoElements[containerOneDragCount])
+    console.log("remove IMAGE from container two: ", removeImageFromSecondContainer)
+    removeImageFromSecondContainer.classList.add('hideDisplay')
+
+    console.log("CREATING IMAGE TAG: ", createImg)
+    createImg.src = 'cardsThree/'+imageIdAndImageName[containerTwoElements[containerOneDragCount]]
+
+
+    console.log('cardsThree/'+imageIdAndImageName[containerTwoElements[containerOneDragCount]])
+    console.log("IMAGE TO BE APPENDED:", createImg)
+    createDiv.appendChild(createImg)
+    someDropTrial.appendChild(createDiv)
+
+
+    containerOneElements.push(containerTwoElements[containerOneDragCount])
+    console.log(containerOneElements)
+    
 }

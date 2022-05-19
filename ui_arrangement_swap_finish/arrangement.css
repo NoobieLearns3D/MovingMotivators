@@ -3,9 +3,10 @@
     padding:0px;
 }
 img {
-    width:125px;
-    height:125px;
+    width:145px;
+    height:145px;
     cursor: move;
+    border-radius: 10px;
 }
 
 
@@ -13,10 +14,11 @@ img {
     border:1px solid black;
     padding: 5px;
     height:100%;
-
 }
+
 .containerOne{
     border:1px solid black;
+    border-radius: 10px;
     padding: 10px;
     display: flex;
     flex-direction: row;
@@ -24,16 +26,21 @@ img {
     flex-flow: wrap;
     background-color: wheat;
 }
+
 .containerOne div img {
     background-color:rgba(245, 174, 43, 0.699);
     border:1px solid black;
+    border-radius: 10px;
     padding:10px;
     margin:10px;
     width: 145px;
     height:145px;
 }
 
+
+
 .containerOne img:hover{
+    transition: .3s ease-in;
     transform: translate(100px, 100px) scale(2.0);
     z-index:-1;
 }
@@ -43,10 +50,24 @@ img {
     z-index: -1;
 }
 
+.containerOne #myCardIdEight:hover{
+    transform: translate(-150px, 100px) scale(2.0);
+    z-index: -1;
+}
+
+.containerOne #myCardIdNine:hover{
+    transform: translate(-150px, 100px) scale(2.0);
+    z-index: -1;
+}
+
+.containerOne #myCardIdTen:hover{
+    transform: translate(-270px, 100px) scale(2.0);
+    z-index: -1;
+}
 
 .containerTwo{
-
     border:1px solid black;
+    border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
     display: flex;
@@ -60,6 +81,7 @@ img {
 .containerTwo div img {
     background-color:rgba(245, 174, 43, 0.699);
     border:1px solid black;
+    border-radius: 10px;
     padding:10px;
     margin:10px;
     width: 145px;
@@ -67,15 +89,19 @@ img {
 }
 
 .containerTwo img:hover{
-    transform: scale(2.0);
+    transition: .3s ease-in;
+    transform: translate(0px, 0px) scale(2.0);
     z-index:-1;
 }
 
 .division{
-    border: 5px solid black;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 .emptyContainerOne {
     border:1px solid black;
+    border-radius: 10px;
     background-color: wheat;
     padding:10px;
     margin:10px 5px 5px 5px;
@@ -84,6 +110,7 @@ img {
     justify-content: space-evenly;
     flex-flow: wrap;
 }
+
 /*
 .emptyBoxOne{
     border:1px solid black;
@@ -97,6 +124,7 @@ img {
 .emptyContainerOne div {
     background-color: azure;
     /* padding:5px;*/
+    border-radius: 10px;
     margin:5px; 
     width: 145px;
     height:145px;
@@ -151,4 +179,9 @@ img {
     background-color: rgb(20, 224, 20);
     border:2px solid black;
     color:white;
+}
+
+
+.highlightAfterDisplay {
+    box-shadow: 2px 2px 20px 2px rgba(0, 255, 64, 0.651);
 }

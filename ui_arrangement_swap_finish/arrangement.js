@@ -43,6 +43,7 @@ function activateDisplay(index)                           // display the empty s
 {
     console.log("INDEX AND COUNT IS: ",index)
     empty[index].classList.remove('hideDisplay')
+    //border.classList.remove('.highlightAfterDisplay')
 }
 
 
@@ -54,6 +55,7 @@ function drop(e)
         e.target.appendChild(document.getElementById(data));
         var border = document.getElementById(data)
         border.classList.add('addBorder')
+        //border.classList.add('highlightAfterDisplay')
         console.log("dropped")
         myAddedCards.add(data)
         univI+=1;
