@@ -16,6 +16,7 @@ function gatherDataAndInitialize()  // Gather all the required data such as clas
 {
     console.log("GATHERING DATA")
 
+    document.querySelector('button').classList.add('hideDisplay')
     empty = document.querySelectorAll("#empty")
     console.log('empty :>> ', empty);
     deactivateAndDisplaySingle(empty);
@@ -121,7 +122,7 @@ function drop(e) {
             indexOfelem = containerOneElements.indexOf(dragSource.id)  // find the index of dragged element
             console.log("Element found at: ", indexOfelem)
 
-            containerOneElements.splice(indexOfelem, 1)
+            containerOneElements.splice(indexOfelem, 1)   // remove elements from containerOne
             console.log("UPDATED containerOne list: ", containerOneElements)
             moveFromSecondContainer()
 
@@ -168,11 +169,11 @@ function drop(e) {
         console.log("Drag started from: ", dragSource.id, "and Drag ended in: ", this.id)
         univI += 1;
         console.log("UnivI: ", univI)
-        if (univI >= empty.length) {
-            console.log("Activating finish button")
-            //activateFinishButton()
-        }
-        else
+        // if (univI >= empty.length) {
+        //     console.log("Activating finish button")
+        //     //activateFinishButton()
+        // }
+        // else
             activateDisplay(univI)
     }
 
@@ -183,25 +184,6 @@ function drop(e) {
 function activateDisplay(univI) {
     empty[univI].classList.remove('hideDisplay')
     empty[univI].classList.add('highlightAfterDisplay')
-}
-
-function activateFinishButton() {
-    const activateButton = document.querySelector(".buttonContainer .button")
-    console.log(activateButton)
-    activateButton.style.cursor = "pointer";
-    activateButton.style.backgroundColor = 'rgb(0, 255, 0)';
-    activateButton.onclick = function () {
-        var userOption = confirm("Would you like to change your preferences/re-arrange ...?")
-        if (userOption) {
-            if (confirm("Are you sure... ?")) { }
-            else
-                alert("Generating PDF")
-        }
-        else {
-            alert("Generating PDF")
-        }
-    }
-
 }
 
 function separateContainerOneAndContainerTwoCards(cards) {
@@ -251,8 +233,9 @@ function checkNumberOfCardsLeft()
     console.log(containerOneElements)
     console.log(containerOneElements.length, "cards left")
 
-    if (containerOneElements.length == 1 || containerOneElements.length == 0)
+    if (containerOneElements.length == 1)
     {
+        
         //alert("Moving the left out card to appropriate position")
         // var lastCard = containerOneElements
         // console.log("DETAILS OF LAST CARD:", document.querySelector('#'+lastCard))
@@ -276,25 +259,14 @@ function checkNumberOfCardsLeft()
         lastEmptySlot.classList.remove('highlightAfterDisplay')
         //lastCard.classList.add('hideDisplay')
 
+
+        // var tempCardPropOne = containerOneElements.pop()
+        // console.log("TEMP CARD Prop ONE: ", tempCardPropOne)
+        // var tempCardPropTwo = document.querySelector(tempCardPropOne).classList.remove('hideDisplay')
+        // console.log('tempCardPropTwo :>> ', tempCardPropTwo);
+
         
-        var body = document.querySelector('.outerContainer')
-        console.log(body)
-        body.style.filter = "blur(10px)"
-        window.setTimeout(AskForConfirmation,3000)
-        body.style.filter = "blur(0px)"
     }
+    
+   
 }
-
-function AskForConfirmation()
-{
-    var userConfirmation = confirm("Would like to rearrange... ?")
-    if (userConfirmation) 
-    {
-        alert("Are you sure... ??")
-        
-    }  
-        
-    else
-        alert("Generating PDF")
-}
-

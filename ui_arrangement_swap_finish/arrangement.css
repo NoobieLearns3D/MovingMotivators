@@ -150,17 +150,17 @@ img {
     display: none;
 }
 
-.buttonContainer{
+#buttonContainer{
     
-    width:200px;
-    height:150px;
+    width:auto;
+    height:70px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
-.buttonContainer .button{
+#buttonContainer .button{
+   
     font-size: medium;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
@@ -169,13 +169,12 @@ img {
     border: 1px solid green;
     border-radius: 20px;
     opacity:0.6;
-    cursor:not-allowed;
     width:100px;
     height:50px;
-    
+    cursor:not-allowed;
 }
 
-.button:hover{
+#buttonContainer .button:hover{
     background-color: rgb(20, 224, 20);
     border:2px solid black;
     color:white;
