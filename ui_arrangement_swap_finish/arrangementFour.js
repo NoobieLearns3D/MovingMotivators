@@ -3,6 +3,7 @@ var dragSource;
 var univI = 0;
 var emptyDragSource;
 var dropEndIn;
+var rearrangeBit = 0
 var classNameOfDropEndIn;
 
 var containerOneElements = []
@@ -95,9 +96,16 @@ function dragEnd(e) {
     if (dropEndIn.length == 0)
         alert("Invalid drop location")
     else {
-        const hideMe = document.getElementById(dragSource.id)
-        console.log("CARD TO HIDE: ", hideMe)
-        hideMe.classList.add('hideDisplay')
+        if(rearrangeBit != 1)
+        {
+            const hideMe = document.getElementById(dragSource.id)
+            //const cloneMe = hideMe.cloneNode(true)
+            // console.log("CLONED ELEMENT: ", cloneMe)
+            console.log("CARD TO HIDE: ", hideMe)
+            //hideMe.remove()
+            hideMe.classList.add('hideDisplay')
+        }
+        
     }
     console.log(" %c ************************** DRAG END ***********************************************", 'color: darkgreen')
 }
@@ -282,12 +290,17 @@ function activateFinishButton()
     getFinishButton.onclick = function(){
         
         var askConfirm = confirm("Would you like to rearrange ... ?")
-        if (confirm)
+        if (askConfirm)
         {   
             var areYouSure = alert("Are you sure... ? ")
             document.querySelector('.outerContainer').style.filter = "blur(0px)"
+            rearrangeBit = 1
         }
         else
+        {
+            rearrangeBit = 1
             alert("Generating PDF")
+        }
+            
     }
 }
