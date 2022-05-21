@@ -95,8 +95,7 @@ function dragEnd(e) {
     console.log(" DRAG END FUNC: Drop ended in,", dropEndIn, classNameOfDropEndIn)
     if (dropEndIn.length == 0)
         alert("Invalid drop location")
-    else {
-        if(rearrangeBit != 1)
+    else if(rearrangeBit != 1)
         {
             const hideMe = document.getElementById(dragSource.id)
             //const cloneMe = hideMe.cloneNode(true)
@@ -105,8 +104,6 @@ function dragEnd(e) {
             //hideMe.remove()
             hideMe.classList.add('hideDisplay')
         }
-        
-    }
     console.log(" %c ************************** DRAG END ***********************************************", 'color: darkgreen')
 }
 
