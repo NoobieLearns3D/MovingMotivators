@@ -278,7 +278,7 @@ function checkNumberOfCardsLeft()
 
 function activateFinishButton()
 {
-    document.querySelector('.outerContainer').style.filter = "blur(10px)"
+    //document.querySelector('.outerContainer').style.filter = "blur(10px)"
     var getFinishButton = document.querySelector('button')
     console.log(getFinishButton)
     getFinishButton.classList.remove('hideDisplay')
